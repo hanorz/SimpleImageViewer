@@ -1,5 +1,6 @@
 import UIKit
 import AVFoundation
+import Photos
 
 public final class ImageViewerController: UIViewController {
     @IBOutlet fileprivate var scrollView: UIScrollView!
@@ -29,6 +30,33 @@ public final class ImageViewerController: UIViewController {
     
     @IBAction func tapDownload(_ sender: Any) {
         
+        let state = PHPhotoLibrary.authorizationStatus()
+        
+        if state != PHAuthorizationStatus.authorized
+        {
+            PHPhotoLibrary.requestAuthorization({ (states) in
+                
+                if states == PHAuthorizationStatus.authorized
+                {
+                    DispatchQueue.main.async {
+                        
+                        UIImageWriteToSavedPhotosAlbum((self.imageView?.image)!, nil, nil, nil)
+                        self.downloadBtn.isHidden = true
+                    }
+                    
+                }
+                else{
+                    
+                    print("baocushibai")
+                }
+            })
+        }
+            
+        else
+        {
+            UIImageWriteToSavedPhotosAlbum((self.imageView?.image)!, nil, nil, nil)
+            self.downloadBtn.isHidden = true
+        }
     }
     
     override public func viewDidLoad() {
