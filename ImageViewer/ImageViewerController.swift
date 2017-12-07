@@ -5,6 +5,7 @@ public final class ImageViewerController: UIViewController {
     @IBOutlet fileprivate var scrollView: UIScrollView!
     @IBOutlet fileprivate var imageView: UIImageView!
     @IBOutlet fileprivate var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var downloadBtn: UIButton!
     
     fileprivate var transitionHandler: ImageViewerTransitioningHandler?
     fileprivate let configuration: ImageViewerConfiguration?
@@ -24,6 +25,10 @@ public final class ImageViewerController: UIViewController {
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @IBAction func tapDownload(_ sender: Any) {
+        
     }
     
     override public func viewDidLoad() {

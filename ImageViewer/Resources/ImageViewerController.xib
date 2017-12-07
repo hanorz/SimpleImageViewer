@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageViewerController" customModule="SimpleImageViewer" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="oPl-2f-Knx" id="GOD-eG-o96"/>
+                <outlet property="downloadBtn" destination="UfW-cB-4Wk" id="ao6-G9-pg1"/>
                 <outlet property="imageView" destination="rHA-5m-kkS" id="V86-k1-pPH"/>
                 <outlet property="scrollView" destination="cQD-2Q-pvo" id="M6k-QU-OVY"/>
                 <outlet property="view" destination="iN0-l3-epB" id="bEt-1B-b5l"/>
@@ -29,10 +30,23 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfW-cB-4Wk">
+                            <rect key="frame" x="323" y="615" width="32" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="32" id="KtT-vz-gcY"/>
+                                <constraint firstAttribute="height" constant="32" id="h5R-EW-kGj"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="downloadBtn"/>
+                            <connections>
+                                <action selector="tapDownload:" destination="-1" eventType="touchUpInside" id="TQt-9N-geV"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="rHA-5m-kkS" firstAttribute="leading" secondItem="cQD-2Q-pvo" secondAttribute="leading" id="4wP-cq-Ke3"/>
+                        <constraint firstAttribute="trailing" secondItem="UfW-cB-4Wk" secondAttribute="trailing" constant="20" id="Ood-UU-cQb"/>
                         <constraint firstAttribute="bottom" secondItem="rHA-5m-kkS" secondAttribute="bottom" id="QCG-J9-naY"/>
+                        <constraint firstAttribute="bottom" secondItem="UfW-cB-4Wk" secondAttribute="bottom" constant="20" id="dnZ-pU-BDr"/>
                         <constraint firstItem="rHA-5m-kkS" firstAttribute="top" secondItem="cQD-2Q-pvo" secondAttribute="top" id="vQb-eq-bub"/>
                         <constraint firstAttribute="trailing" secondItem="rHA-5m-kkS" secondAttribute="trailing" id="yts-xk-meF"/>
                     </constraints>
@@ -75,5 +89,6 @@
     </objects>
     <resources>
         <image name="closeButton" width="13" height="13"/>
+        <image name="downloadBtn" width="32" height="32"/>
     </resources>
 </document>
